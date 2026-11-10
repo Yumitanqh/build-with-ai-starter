@@ -200,13 +200,32 @@ app.listen(5000, () => console.log('Carpark backend service running on port 5000
               {mode === 'custom_api' && (
                 <div className="space-y-3 p-3.5 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div>
-                    <label className="block font-medium text-slate-700 dark:text-slate-300 mb-1">
-                      Backend Endpoint URL
-                    </label>
+                    <div className="flex items-center justify-between mb-1">
+                      <label className="font-medium text-slate-700 dark:text-slate-300">
+                        Backend Endpoint URL
+                      </label>
+                      <div className="flex items-center gap-1.5 text-[10px]">
+                        <button
+                          type="button"
+                          onClick={() => setEndpointUrl('/api/carparkavailability')}
+                          className="text-blue-600 dark:text-blue-400 hover:underline font-mono"
+                        >
+                          Use /api/carparkavailability
+                        </button>
+                        <span className="text-slate-400">·</span>
+                        <button
+                          type="button"
+                          onClick={() => setEndpointUrl('/api/health')}
+                          className="text-blue-600 dark:text-blue-400 hover:underline font-mono"
+                        >
+                          Use /api/health
+                        </button>
+                      </div>
+                    </div>
                     <div className="flex gap-2">
                       <input
-                        type="url"
-                        placeholder="https://api.yourdomain.com/carparks or /api/carparks"
+                        type="text"
+                        placeholder="/api/carparkavailability or https://api.yourdomain.com/carparks"
                         value={endpointUrl}
                         onChange={(e) => setEndpointUrl(e.target.value)}
                         className="flex-1 p-2 text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-slate-100 font-mono"
